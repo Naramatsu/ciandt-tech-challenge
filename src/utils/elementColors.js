@@ -66,6 +66,11 @@ export const cardColor = (type) => {
         ...color_rock.bg(),
         "--color": color_rock.color,
       };
+    case "bug":
+      return {
+        ...color_bug.bg(),
+        "--color": color_bug.color,
+      };
     default:
       return {
         ...color_flying.bg(),
@@ -82,6 +87,11 @@ const color_flying = {
 const color_psychic = {
   color: "#c430f9",
   bg: () => bgBuilder(color_psychic.color),
+};
+
+const color_bug = {
+  color: "#c9c279",
+  bg: () => bgBuilder(color_bug.color),
 };
 
 const color_rock = {
