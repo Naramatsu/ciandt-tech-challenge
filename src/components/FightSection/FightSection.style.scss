@@ -1,0 +1,16 @@
+.section__fight__card {
+  display: flex;
+  align-items: center;
+
+  .vs__logo {
+    width: 70px;
+    height: fit-content;
+    margin: 5px;
+  }
+
+  &:nth-last-child(1) {
+    .vs__logo {
+      display: none;
+    }
+  }
+}
