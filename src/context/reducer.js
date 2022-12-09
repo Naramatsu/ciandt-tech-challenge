@@ -1,9 +1,11 @@
 import {
   ADD_FAVORITE,
+  ADD_FIGHT_LIST,
   FIND_POKEMON_BY_NAME,
   GET_POKEMONS,
   GET_POKEMONS_TYPES,
   REMOVE_FAVORITE,
+  REQUEST_WITH_ERROR,
   SELECT_POKEMON,
 } from "./types";
 
@@ -11,23 +13,21 @@ const reducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
     case GET_POKEMONS:
+    case FIND_POKEMON_BY_NAME:
       return {
         ...state,
-        pokemons: [...state.pokemons, ...payload],
+        pokemons: payload,
       };
     case GET_POKEMONS_TYPES:
       return {
         ...state,
         pokemonsTypesList: payload,
       };
-    case FIND_POKEMON_BY_NAME: {
+    case ADD_FIGHT_LIST:
       return {
         ...state,
-        pokemons: state.pokemons.filter((pokemon) =>
-          pokemon.name.includes(payload)
-        ),
+        fight: [...state.fight, payload],
       };
-    }
     case SELECT_POKEMON:
       return {
         ...state,
@@ -44,7 +44,14 @@ const reducer = (state, action) => {
     case REMOVE_FAVORITE:
       return {
         ...state,
-        favorites: state.favorites.filter((pokemon) => pokemon.id !== payload),
+        favorites: state.favorites.filter(
+          (pokemon) => pokemon.name !== payload.name
+        ),
+      };
+    case REQUEST_WITH_ERROR:
+      return {
+        ...state,
+        error: payload,
       };
     default:
       return state;

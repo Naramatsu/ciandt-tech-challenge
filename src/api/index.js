@@ -11,9 +11,7 @@ export const getAllPokemons = async (offset, limit) => {
   return data;
 };
 
-export const getAllTypes = async () => {
-  const {
-    data: { results },
-  } = await axios.get(`${REACT_APP_POKEMON_API}/type`);
-  return results;
+export const findByName = async (name) => {
+  const { data } = await axios.get(`${REACT_APP_POKEMON_API}/pokemon/${name}`);
+  return data;
 };
