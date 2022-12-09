@@ -4,10 +4,11 @@ import { AppContext } from ".";
 import { findByName, getAllPokemons as getAllPokemonsAPI } from "../api";
 import {
   ADD_FAVORITE,
-  ADD_FIGHT_LIST,
+  ADD_TO_FIGHT_LIST,
   FIND_POKEMON_BY_NAME,
   GET_POKEMONS,
   REMOVE_FAVORITE,
+  REMOVE_TO_FIGHT_LIST,
   REQUEST_WITH_ERROR,
 } from "./types";
 
@@ -83,8 +84,15 @@ const AppState = (props) => {
   const addPokemonToFight = async (pokemon) => {
     const payload = await findByName(pokemon.name);
     dispatch({
-      type: ADD_FIGHT_LIST,
+      type: ADD_TO_FIGHT_LIST,
       payload,
+    });
+  };
+
+  const removePokemonToFight = async (pokemon) => {
+    dispatch({
+      type: REMOVE_TO_FIGHT_LIST,
+      payload: pokemon,
     });
   };
 
@@ -94,6 +102,7 @@ const AppState = (props) => {
     getPolkemonByName,
     removeFavorite,
     addPokemonToFight,
+    removePokemonToFight,
   };
 
   return (

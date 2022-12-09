@@ -1,10 +1,11 @@
 import {
   ADD_FAVORITE,
-  ADD_FIGHT_LIST,
+  ADD_TO_FIGHT_LIST,
   FIND_POKEMON_BY_NAME,
   GET_POKEMONS,
   GET_POKEMONS_TYPES,
   REMOVE_FAVORITE,
+  REMOVE_TO_FIGHT_LIST,
   REQUEST_WITH_ERROR,
   SELECT_POKEMON,
 } from "./types";
@@ -23,10 +24,15 @@ const reducer = (state, action) => {
         ...state,
         pokemonsTypesList: payload,
       };
-    case ADD_FIGHT_LIST:
+    case ADD_TO_FIGHT_LIST:
       return {
         ...state,
         fight: [...state.fight, payload],
+      };
+    case REMOVE_TO_FIGHT_LIST:
+      return {
+        ...state,
+        fight: state.fight.filter((item) => item.name !== payload),
       };
     case SELECT_POKEMON:
       return {
