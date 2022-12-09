@@ -1,12 +1,16 @@
+import { Button } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context";
 import FightSection from "../FightSection";
 import Filters from "../Filters";
 import PanelList from "../PanelList";
+import PokemonsTable from "../PokemonsTable/PokemonsTable";
+import Toast from "../Toast";
 import "./Main.style.scss";
 
 const Main = () => {
   const [favoritesList, setFavoritesList] = useState([]);
+  const [showStats, setShowStats] = useState(false);
   const {
     pokemons,
     getAllPokemons,
@@ -15,6 +19,7 @@ const Main = () => {
     removeFavorite,
     getPolkemonByName,
     fight,
+    error,
   } = useContext(AppContext);
 
   useEffect(() => {
@@ -53,6 +58,8 @@ const Main = () => {
     }
   };
 
+  const showBtnStats = fight.length >= 2 && !showStats;
+
   return (
     <section className="pokedex container">
       <img src="pokedex.png" alt="logo" />
@@ -86,6 +93,13 @@ const Main = () => {
           <img className="card__back" src="back_card.jpg" alt="back card" />
         )}
       </section>
+      {showBtnStats && (
+        <Button variant="contained" onClick={() => setShowStats(true)}>
+          View stats
+        </Button>
+      )}
+      {showStats && <PokemonsTable onHide={() => setShowStats(false)} />}
+      <Toast visible={!!error} message={error} />
     </section>
   );
 };
