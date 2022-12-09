@@ -1,0 +1,14 @@
+.filters__container {
+  display: flex;
+
+  .input__text {
+    width: 90%;
+    display: flex;
+    margin: auto;
+    gap: 5px;
+
+    div {
+      width: -webkit-fill-available;
+    }
+  }
+}
