@@ -1,21 +1,22 @@
 import "./App.css";
+import Main from "./components/Main";
+import AppState from "./context/AppState";
+import { Route, Switch } from "react-router-dom";
+import Overview from "./components/Overview";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://pokeapi.co/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Gotta Catch'Em All!!!!
-        </a>
-      </header>
+      <AppState>
+        <Switch>
+          <Route exact path="/">
+            <Main />
+          </Route>
+          <Route exact path="/overview/:id">
+            <Overview />
+          </Route>
+        </Switch>
+      </AppState>
     </div>
   );
 }
