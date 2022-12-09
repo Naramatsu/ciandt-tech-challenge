@@ -2,6 +2,9 @@ import React from "react";
 import { Button } from "@mui/material";
 import { cardColor } from "../../utils/elementColors";
 import "./CardPreview.style.scss";
+import { useContext } from "react";
+import { AppContext } from "../../context";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const CardPreview = ({
   name,
@@ -16,11 +19,16 @@ const CardPreview = ({
   specialDefense,
   speed,
 }) => {
+  const { removePokemonToFight } = useContext(AppContext);
   const cardColorStyles = cardColor(type);
   const imgNotAvailable = "img_not_available.png";
 
   return (
     <section style={cardColorStyles} className="pokemon__card">
+      <DeleteIcon
+        className="remove__card"
+        onClick={() => removePokemonToFight(name)}
+      />
       <section className="pokemon__card__header">
         <div className="pokemon__card__header__name">
           <h3>{name}</h3>
