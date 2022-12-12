@@ -11,11 +11,12 @@ const FightSection = () => {
         const [type] = pokemon.types;
         const [hp, attack, defense, specialAttack, specialDefense, speed] =
           pokemon.stats;
+        const officialArtWork = "official-artwork";
         return (
           <section className="section__fight__card" key={index}>
             <CardPreview
               name={pokemon.name}
-              img={pokemon.sprites.other.dream_world.front_default}
+              img={pokemon.sprites.other[officialArtWork].front_default}
               type={type.type.name}
               weight={pokemon.weight}
               height={pokemon.height}
