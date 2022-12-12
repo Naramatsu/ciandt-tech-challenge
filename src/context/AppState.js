@@ -6,6 +6,7 @@ import {
   ADD_FAVORITE,
   ADD_TO_FIGHT_LIST,
   FIND_POKEMON_BY_NAME,
+  GET_POKEMON,
   GET_POKEMONS,
   REMOVE_FAVORITE,
   REMOVE_TO_FIGHT_LIST,
@@ -52,6 +53,7 @@ const AppState = (props) => {
         type: FIND_POKEMON_BY_NAME,
         payload: [payload],
       });
+
       dispatch({
         type: REQUEST_WITH_ERROR,
         payload: null,
@@ -60,11 +62,20 @@ const AppState = (props) => {
       let message = `Error trying to find the pokemon ${name}`;
       if (error.response.status === 404)
         message = "This pokemon does not exist!";
+
       dispatch({
         type: REQUEST_WITH_ERROR,
         payload: message,
       });
     }
+  };
+
+  const getPokemonInformation = async (name) => {
+    const payload = await findByName(name);
+    dispatch({
+      type: GET_POKEMON,
+      payload: payload,
+    });
   };
 
   const addFavorite = (pokemon) => {
@@ -103,6 +114,7 @@ const AppState = (props) => {
     removeFavorite,
     addPokemonToFight,
     removePokemonToFight,
+    getPokemonInformation,
   };
 
   return (

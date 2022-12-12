@@ -2,6 +2,7 @@ import {
   ADD_FAVORITE,
   ADD_TO_FIGHT_LIST,
   FIND_POKEMON_BY_NAME,
+  GET_POKEMON,
   GET_POKEMONS,
   GET_POKEMONS_TYPES,
   REMOVE_FAVORITE,
@@ -58,6 +59,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         error: payload,
+      };
+    case GET_POKEMON:
+      return {
+        ...state,
+        pokemon: {
+          ...state.pokemon,
+          [payload.name]: payload,
+        },
       };
     default:
       return state;

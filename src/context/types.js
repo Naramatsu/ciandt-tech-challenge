@@ -1,4 +1,5 @@
 export const GET_POKEMONS = "GET_POKEMONS";
+export const GET_POKEMON = "GET_POKEMON";
 export const GET_POKEMONS_TYPES = "GET_POKEMONS_TYPES";
 
 export const FIND_POKEMON_BY_NAME = "FIND_POKEMON_BY_NAME";
