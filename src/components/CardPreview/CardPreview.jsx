@@ -1,10 +1,10 @@
 import React from "react";
-import { Button } from "@mui/material";
-import { cardColor } from "../../utils/elementColors";
-import "./CardPreview.style.scss";
-import { useContext } from "react";
 import { AppContext } from "../../context";
+import { cardColor } from "../../utils/elementColors";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import "./CardPreview.style.scss";
 
 const CardPreview = ({
   name,
@@ -72,7 +72,7 @@ const CardPreview = ({
           <p>
             <b>Special defense: </b> {specialDefense}
           </p>
-          <Button>View Info</Button>
+          <Link to={`/overview/${name}`}>View Info</Link>
         </section>
       </section>
       <p className="copyright">Pokemon/Nintendo</p>
