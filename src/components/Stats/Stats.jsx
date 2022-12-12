@@ -6,7 +6,6 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 am4core.useTheme(am4themes_animated);
 
 const Stats = ({ data }) => {
-  console.log("data", data);
   useLayoutEffect(() => {
     const chart = am4core.create("chartdiv", am4charts.XYChart3D);
 
