@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+  .pokedex__logo {
+    width: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.App-link {
+  color: #61dafb;
+}
