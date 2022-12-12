@@ -48,3 +48,11 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .pokedex {
+    .pokemons__grid {
+      display: block;
+    }
+  }
+}

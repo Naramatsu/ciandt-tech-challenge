@@ -1,10 +1,10 @@
-import { Button } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context";
+import { Button } from "@mui/material";
 import FightSection from "../FightSection";
-import Filters from "../Filters";
-import PanelList from "../PanelList";
+import Panel from "../Panel";
 import PokemonsTable from "../PokemonsTable/PokemonsTable";
+import Stats from "../Stats";
 import Toast from "../Toast";
 import "./Main.style.scss";
 
@@ -62,28 +62,21 @@ const Main = () => {
 
   return (
     <section className="pokedex container">
-      <img src="pokedex.png" alt="logo" />
       <section className="pokemons__grid">
-        <section className="panel__list__container">
-          <section className="panel__list__header">
-            <img src="pokemon.png" alt="pokemon list" />
-            <Filters
-              handlerSearch={handlerSearchPokemons}
-              handlerClear={() => getAllPokemons()}
-            />
-          </section>
-          <PanelList list={pokemons} handlerFavorites={handlerFavorites} />
-        </section>
-        <section className="panel__list__container">
-          <section className="panel__list__header">
-            <h3>Favorites</h3>
-            <Filters
-              handlerSearch={handlerSearchFavorites}
-              handlerClear={() => setFavoritesList(favorites)}
-            />
-          </section>
-          <PanelList list={favoritesList} handlerFavorites={handlerFavorites} />
-        </section>
+        <Panel
+          handlerSearch={handlerSearchPokemons}
+          handlerClear={getAllPokemons}
+          handlerFavorites={handlerFavorites}
+          data={pokemons}
+          img="pokemon.png"
+        />
+        <Panel
+          handlerSearch={handlerSearchFavorites}
+          handlerClear={() => setFavoritesList(favorites)}
+          handlerFavorites={handlerFavorites}
+          data={favoritesList}
+          label="Favorites"
+        />
       </section>
       <h3>Fight section</h3>
       <section className="section__fight">
@@ -94,11 +87,29 @@ const Main = () => {
         )}
       </section>
       {showBtnStats && (
-        <Button variant="contained" onClick={() => setShowStats(true)}>
-          View stats
-        </Button>
+        <>
+          <Button variant="contained" onClick={() => setShowStats(true)}>
+            View stats
+          </Button>
+          <br />
+          <br />
+          <br />
+        </>
       )}
-      {showStats && <PokemonsTable onHide={() => setShowStats(false)} />}
+      {showStats && (
+        <>
+          <PokemonsTable onHide={() => setShowStats(false)} />
+          <Stats
+            data={fight.map((item) => ({
+              pokemon: item.name,
+              attack: item.stats[1].base_stat,
+              defense: item.stats[2].base_stat,
+              specialAttack: item.stats[3].base_stat,
+              specialDefense: item.stats[4].base_stat,
+            }))}
+          />
+        </>
+      )}
       <Toast visible={!!error} message={error} />
     </section>
   );
