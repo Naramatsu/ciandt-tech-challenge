@@ -1,9 +1,9 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { Button } from "@mui/material";
-import { AgGridReact } from "ag-grid-react";
-import "./PokemonsTable.style.scss";
-import { useContext } from "react";
 import { AppContext } from "../../context";
+import { AgGridReact } from "ag-grid-react";
+import { Button } from "@mui/material";
+import { useContext } from "react";
+import "./PokemonsTable.style.scss";
 
 const PokemonsTable = ({ onHide }) => {
   const { fight } = useContext(AppContext);
