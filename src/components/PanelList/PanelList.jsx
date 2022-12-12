@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import Favorite from "@mui/icons-material/Favorite";
-import Visibility from "@mui/icons-material/Visibility";
-import GroupAdd from "@mui/icons-material/GroupAdd";
 import { AppContext } from "../../context";
+import Favorite from "@mui/icons-material/Favorite";
+import GroupAdd from "@mui/icons-material/GroupAdd";
+import { Link } from "react-router-dom";
+import Visibility from "@mui/icons-material/Visibility";
 import "./PanelList.style.scss";
 
 const PanelList = ({ list, handlerFavorites = () => {} }) => {
@@ -32,7 +33,9 @@ const PanelList = ({ list, handlerFavorites = () => {} }) => {
                   color={isFavorite(pokemon)}
                   onClick={() => handlerFavorites(pokemon)}
                 />
-                <Visibility color="primary" />
+                <Link to={`/overview/${pokemon.name}`}>
+                  <Visibility color="primary" />
+                </Link>
                 <GroupAdd
                   color="secondary"
                   onClick={() => handlerAddPokemonToFight(pokemon)}
