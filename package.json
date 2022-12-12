@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@amcharts/amcharts5": "^5.2.39",
-    "@amcharts/amcharts5-fonts": "^5.0.1",
-    "@amcharts/amcharts5-geodata": "^5.1.0",
+    "@amcharts/amcharts4": "^4.10.30",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.16",
