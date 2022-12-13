@@ -65,3 +65,11 @@
     }
   }
 }
+
+@media (max-width: 580px) {
+  .pokemon__overview {
+    a {
+      top: 5px;
+    }
+  }
+}
