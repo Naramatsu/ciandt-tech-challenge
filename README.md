@@ -4,11 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Install and Run
 
-Please copy and paste this line https://github.com/Naramatsu/challenge-jonathan-narvaez.git
-in a git bash console in your desktop
-and add a `.env` file with the follow variable:
-`REACT_APP_POKEMON_API=https://pokeapi.co/api/v2`
-Then `npm i` and `npm start`
+Please copy and paste this line https://github.com/Naramatsu/challenge-jonathan-narvaez.git \
+in a git bash console in your desktop \
+and add a `.env` file with the follow variable: \
+`REACT_APP_POKEMON_API=https://pokeapi.co/api/v2` \
+Then `npm i` and `npm start` \
 Enjoy the pokedex app
 
 ## Available Scripts
