@@ -10,6 +10,7 @@ import {
   GET_POKEMONS,
   REMOVE_FAVORITE,
   REMOVE_TO_FIGHT_LIST,
+  REQUESTING,
   REQUEST_WITH_ERROR,
 } from "./types";
 
@@ -21,12 +22,30 @@ const AppState = (props) => {
     favorites: [],
     fight: [],
     error: null,
+    isFetching: false,
   };
 
   const [globalState, dispatch] = useReducer(AppReducer, initialState);
 
+  const endSuccessRequest = () => {
+    dispatch({
+      type: REQUESTING,
+      payload: false,
+    });
+
+    dispatch({
+      type: REQUEST_WITH_ERROR,
+      payload: null,
+    });
+  };
+
   const getAllPokemons = async (offset = 0, limit = 100) => {
     try {
+      dispatch({
+        type: REQUESTING,
+        payload: true,
+      });
+
       const { results } = await getAllPokemonsAPI(offset, limit);
 
       dispatch({
@@ -34,10 +53,7 @@ const AppState = (props) => {
         payload: results,
       });
 
-      dispatch({
-        type: REQUEST_WITH_ERROR,
-        payload: null,
-      });
+      endSuccessRequest();
     } catch (error) {
       dispatch({
         type: REQUEST_WITH_ERROR,
@@ -48,16 +64,18 @@ const AppState = (props) => {
 
   const getPolkemonByName = async (name) => {
     try {
+      dispatch({
+        type: REQUESTING,
+        payload: true,
+      });
+
       const payload = await findByName(name);
       dispatch({
         type: FIND_POKEMON_BY_NAME,
         payload: [payload],
       });
 
-      dispatch({
-        type: REQUEST_WITH_ERROR,
-        payload: null,
-      });
+      endSuccessRequest();
     } catch (error) {
       let message = `Error trying to find the pokemon ${name}`;
       if (error.response.status === 404)
@@ -71,11 +89,18 @@ const AppState = (props) => {
   };
 
   const getPokemonInformation = async (name) => {
+    dispatch({
+      type: REQUESTING,
+      payload: true,
+    });
+
     const payload = await findByName(name);
     dispatch({
       type: GET_POKEMON,
       payload: payload,
     });
+
+    endSuccessRequest();
   };
 
   const addFavorite = (pokemon) => {

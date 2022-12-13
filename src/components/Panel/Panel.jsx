@@ -1,4 +1,5 @@
 import React from "react";
+import { Skeleton } from "@mui/material";
 import Filters from "../Filters";
 import PanelList from "../PanelList";
 import "./Panel.style.scss";
@@ -14,7 +15,35 @@ const Panel = (props) => {
           handlerClear={props.handlerClear}
         />
       </section>
-      <PanelList list={props.data} handlerFavorites={props.handlerFavorites} />
+      {props.isFetching ? (
+        <>
+          <Skeleton
+            className="container"
+            variant="rectangular"
+            width="90%"
+            height={50}
+          />
+          <br />
+          <Skeleton
+            className="container"
+            variant="rectangular"
+            width="90%"
+            height={50}
+          />
+          <br />
+          <Skeleton
+            className="container"
+            variant="rectangular"
+            width="90%"
+            height={50}
+          />
+        </>
+      ) : (
+        <PanelList
+          list={props.data}
+          handlerFavorites={props.handlerFavorites}
+        />
+      )}
     </section>
   );
 };

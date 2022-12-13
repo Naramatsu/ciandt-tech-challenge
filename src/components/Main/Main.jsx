@@ -20,6 +20,7 @@ const Main = () => {
     getPolkemonByName,
     fight,
     error,
+    isFetching,
   } = useContext(AppContext);
 
   useEffect(() => {
@@ -69,6 +70,7 @@ const Main = () => {
           handlerFavorites={handlerFavorites}
           data={pokemons}
           img="pokemon.png"
+          isFetching={isFetching}
         />
         <Panel
           handlerSearch={handlerSearchFavorites}

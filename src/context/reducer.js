@@ -7,6 +7,7 @@ import {
   GET_POKEMONS_TYPES,
   REMOVE_FAVORITE,
   REMOVE_TO_FIGHT_LIST,
+  REQUESTING,
   REQUEST_WITH_ERROR,
   SELECT_POKEMON,
 } from "./types";
@@ -67,6 +68,11 @@ const reducer = (state, action) => {
           ...state.pokemon,
           [payload.name]: payload,
         },
+      };
+    case REQUESTING:
+      return {
+        ...state,
+        isFetching: payload,
       };
     default:
       return state;
