@@ -5,12 +5,7 @@ import { Link } from "react-router-dom";
 import PieChart from "../PieChart";
 import { useHistory } from "react-router-dom";
 import "./Overview.style.scss";
-
-const extractPokemonNameFromUrl = (path) => {
-  return path.split("/")[2];
-};
-
-const splitStatName = (stat) => stat.split("-").join(" ");
+import { extractPokemonNameFromUrl, splitStatName } from "../../utils";
 
 const Overview = () => {
   const { pokemon, getPokemonInformation, isFetching } = useContext(AppContext);

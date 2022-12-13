@@ -14,3 +14,9 @@ export const removeDuplicateItems = (items) => {
     return exists;
   });
 };
+
+export const extractPokemonNameFromUrl = (path) => {
+  return path.split("/")[2];
+};
+
+export const splitStatName = (stat) => stat.split("-").join(" ");
