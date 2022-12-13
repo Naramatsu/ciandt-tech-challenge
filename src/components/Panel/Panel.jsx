@@ -2,7 +2,6 @@ import React from "react";
 import { Skeleton } from "@mui/material";
 import Filters from "../Filters";
 import PanelList from "../PanelList";
-import "./Panel.style.scss";
 
 const Panel = (props) => {
   return (
