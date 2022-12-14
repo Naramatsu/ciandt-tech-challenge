@@ -6,9 +6,11 @@ import PieChart from "../PieChart";
 import { useHistory } from "react-router-dom";
 import "./Overview.style.scss";
 import { extractPokemonNameFromUrl, splitStatName } from "../../utils";
+import Toast from "../Toast";
 
 const Overview = () => {
-  const { pokemon, getPokemonInformation, isFetching } = useContext(AppContext);
+  const { pokemon, getPokemonInformation, isFetching, error } =
+    useContext(AppContext);
   const history = useHistory();
   const pokemonName = extractPokemonNameFromUrl(history.location.pathname);
 
@@ -86,6 +88,7 @@ const Overview = () => {
           ))}
         </section>
       )}
+      <Toast visible={!!error} message={error} />
     </section>
   );
 };
