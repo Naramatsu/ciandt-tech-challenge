@@ -1,6 +1,6 @@
 # Install and Run
 
-Please copy and paste this line `git clone https://github.com/Naramatsu/challenge-jonathan-narvaez.git` \
+Please copy and paste this line `git clone https://github.com/Naramatsu/ciandt-tech-challenge.git` \
 in a git bash console in your desktop \
 and add a `.env` file with the follow variable: \
 `REACT_APP_POKEMON_API=https://pokeapi.co/api/v2` \
