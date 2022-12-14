@@ -11,17 +11,17 @@ Enjoy the pokedex app
 
 In the realization of this challenge I faced a great inconvenience and it was that I could not make the unit tests because when implementing the `amcharts/amcharts4` tool that is in `TS` it presents me many problems in the configuration of reading files.
 
-So I kept searching and informing myself about possible solutions, looking for similar problems in `stackoverflow`, `github` forums among many other `blogs` and `webpages`.
+So I kept searching and informing myself about possible solutions, looking for similar problems in `stackoverflow`, `github` forums among many other `blogs` and `webpages`. \ \
 
-I created an alternate branch to be able to run the `babel` and `jest` configurations but no possible solution was found.
+I created an alternate branch to be able to run the `babel` and `jest` configurations but no possible solution was found.\ \
 
-On the other hand if the intention is to validate the ability to do unit testing, here is a project I worked on recently in which I implemented unit testing. [project](https://github.com/Naramatsu/challenge-jonathan-narvaez)
+On the other hand if the intention is to validate the ability to do unit testing, here is a project I worked on recently in which I implemented unit testing. [project](https://github.com/Naramatsu/challenge-jonathan-narvaez) \ \
 
 ### What would you do in this case if you were hired and this situation arises?
 
-`1.` Conduct a research and propose a solution with the team.
-`2.` Propose to change the tools in order to be able to implement unit tests (in case the `CI/CD` requires a high coverage).
-`3.` Estimate and see how much effort and time it represents to move the test completely to `TS`.
+`1.` Conduct a research and propose a solution with the team. \
+`2.` Propose to change the tools in order to be able to implement unit tests (in case the `CI/CD` requires a high coverage). \
+`3.` Estimate and see how much effort and time it represents to move the test completely to `TS`. \
 
 # Getting Started with Create React App
 
