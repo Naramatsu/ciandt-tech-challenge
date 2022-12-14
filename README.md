@@ -13,9 +13,9 @@ In the realization of this challenge I faced a great inconvenience and it was th
 
 So I kept searching and informing myself about possible solutions, looking for similar problems in `stackoverflow`, `github` forums among many other `blogs` and `webpages`.
 
-I created an alternate branch to be able to run the `babel` and `jest` configurations but no possible solution was found.\
+I created an alternate branch to be able to run the `babel` and `jest` configurations but no possible solution was found.
 
-On the other hand if the intention is to validate the ability to do unit testing, here is a project I worked on recently in which I implemented unit testing. [project](https://github.com/Naramatsu/challenge-jonathan-narvaez) \
+On the other hand if the intention is to validate the ability to do unit testing, here is a project I worked on recently in which I implemented unit testing. [project](https://github.com/Naramatsu/challenge-jonathan-narvaez)
 
 ### What would you do in this case if you were hired and this situation arises?
 
