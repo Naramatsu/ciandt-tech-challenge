@@ -1,3 +1,6 @@
+# Visit the app (deployed)
+https://ciandt-tech-challenge-ten.vercel.app/
+
 # Install and Run
 
 Please copy and paste this line `git clone https://github.com/Naramatsu/ciandt-tech-challenge.git` \
