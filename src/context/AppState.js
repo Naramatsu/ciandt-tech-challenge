@@ -89,18 +89,28 @@ const AppState = (props) => {
   };
 
   const getPokemonInformation = async (name) => {
-    dispatch({
-      type: REQUESTING,
-      payload: true,
-    });
+    try {
+      dispatch({
+        type: REQUESTING,
+        payload: true,
+      });
 
-    const payload = await findByName(name);
-    dispatch({
-      type: GET_POKEMON,
-      payload: payload,
-    });
+      const payload = await findByName(name);
+      dispatch({
+        type: GET_POKEMON,
+        payload: payload,
+      });
 
-    endSuccessRequest();
+      endSuccessRequest();
+    } catch (error) {
+      let message = `Error trying to find the pokemon ${name}`;
+      if (error.response.status === 404)
+        message = "This pokemon does not exist!";
+      dispatch({
+        type: REQUEST_WITH_ERROR,
+        payload: message,
+      });
+    }
   };
 
   const addFavorite = (pokemon) => {
